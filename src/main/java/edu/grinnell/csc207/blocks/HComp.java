@@ -1,6 +1,7 @@
 package edu.grinnell.csc207.blocks;
 
 import java.util.Arrays;
+import java.lang.String;
 
 /**
  * The horizontal composition of blocks.
@@ -71,16 +72,53 @@ public class HComp implements AsciiBlock {
    *   if i is outside the range of valid rows.
    */
   public String row(int i) throws Exception {
-    return "";  // STUB
+    if ((i < 0) || (i >= this.height())) {
+      // Outside of normal bounds
+      throw new Exception("Invalid row " + i);
+    } else {
+      String str = new String("");
+
+      for (int x = 0; x < blocks.length; x++) {
+        AsciiBlock temp = blocks[x];
+        if (this.align == VAlignment.TOP) {
+          if (i < temp.height()) {
+            str.concat(temp.row(i));
+          } else { 
+            str.concat(" ".repeat(temp.width()));
+          }
+        } else if (this.align == VAlignment.BOTTOM) {
+          if (i >= (this.height() - temp.height())) {
+            str.concat(temp.row(i));
+          } else { 
+            str.concat(" ".repeat(temp.width()));
+          }
+        } else if (this.align == VAlignment.CENTER) {
+          int topbound = (this.height() / temp.height()) - 1; // inclusive
+          int botbound = topbound + temp.height() - 1; // inclusive
+          if (i <= topbound && i >= botbound) {
+            str.concat(temp.row(i));
+          } else { 
+            str.concat(" ".repeat(temp.width()));
+          }
+        }
+      }
+      return str;
+    }
   } // row(int)
 
   /**
    * Determine how many rows are in the block.
-   *
+   *empty
    * @return the number of rows
    */
   public int height() {
-    return 0;   // STUB
+    int max = 0;
+    for (int i = 0; i < blocks.length; i++) {
+      if (blocks[i].height() > max) {
+        max = blocks[i].height();
+      }
+    }
+    return max;
   } // height()
 
   /**
@@ -89,7 +127,11 @@ public class HComp implements AsciiBlock {
    * @return the number of columns
    */
   public int width() {
-    return 0;   // STUB
+    int width = 0;
+    for (int i = 0; i < blocks.length; i++) {
+      width += blocks[i].width();
+    }
+    return width;
   } // width()
 
   /**

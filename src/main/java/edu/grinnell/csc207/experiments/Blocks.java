@@ -9,6 +9,8 @@ import edu.grinnell.csc207.blocks.Lines;
 import edu.grinnell.csc207.blocks.Rect;
 import edu.grinnell.csc207.blocks.VComp;
 import edu.grinnell.csc207.blocks.VAlignment;
+import edu.grinnell.csc207.blocks.Grid;
+import edu.grinnell.csc207.blocks.Empty;
 
 import java.io.PrintWriter;
 
@@ -58,6 +60,11 @@ public class Blocks {
     PrintWriter pen = new PrintWriter(System.out, true);
 
     Line line = new Line("Hello");
+    //AsciiBlock empty = new Empty();
+    //AsciiBlock boxedEmpty = new Boxed(empty);
+    //Grid grid = new Grid(boxedEmpty, 3, 4);
+    //figure(pen, "test grid", grid);
+
     Rect exes = new Rect('X', 3, 3);
     AsciiBlock boxedLine = new Boxed(line);
     AsciiBlock boxedboxedLine = new Boxed(boxedLine);
