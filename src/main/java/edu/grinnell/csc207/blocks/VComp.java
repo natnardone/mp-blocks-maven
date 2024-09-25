@@ -72,8 +72,43 @@ public class VComp implements AsciiBlock {
    *   if i is outside the range of valid rows.
    */
   public String row(int i) throws Exception {
-    return "";  // STUB
-  } // row(int)
+    if ((i < 0) || (i >= this.height())) {
+      // Outside of normal bounds
+      throw new Exception("Invalid row " + i);
+    } else {
+      String str = new String("");
+      int rowCount = 0;
+      for (int k =0; k < blocks.length; k++) {
+        for (int j = 0; j < blocks[k].height(); j++){
+          if (rowCount == i) {
+            str = blocks[k].row(j);
+            break;
+          } else {
+            rowCount++;
+          }
+        }
+      }
+      String spaces = new String(" ".repeat(this.width()-str.length()));
+      if (this.align == HAlignment.LEFT){
+        str.concat(spaces);
+        return str;
+      }
+      else if (this.align == HAlignment.RIGHT) {
+        spaces.concat(str);
+        return spaces;
+      }
+      else if (this.align == HAlignment.CENTER) {
+        String leftspace = new String(spaces.substring(0, spaces.length()/2));
+        String rightspace = new String(spaces.substring(spaces.length()/2));
+        leftspace.concat(str).concat(rightspace);
+        return leftspace;
+      }
+      else {
+        return null;
+      }
+
+    }
+  }
 
   /**
    * Determine how many rows are in the block.
@@ -81,16 +116,25 @@ public class VComp implements AsciiBlock {
    * @return the number of rows
    */
   public int height() {
-    return 0;   // STUB
+    int height = 0;
+    for (int i = 0; i < blocks.length; i++) {
+      height += blocks[i].height();
+    }
+    return height;
   } // height()
-
   /**
    * Determine how many columns are in the block.
    *
    * @return the number of columns
    */
   public int width() {
-    return 0;   // STUB
+    int max = 0;
+    for (int i = 0; i < blocks.length; i++) {
+      if (blocks[i].width() > max) {
+        max = blocks[i].width();
+      }
+    }
+    return max;
   } // width()
 
   /**

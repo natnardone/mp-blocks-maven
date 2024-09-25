@@ -1,4 +1,5 @@
 package edu.grinnell.csc207.blocks;
+import java.lang.StringBuilder;
 
 /**
  * A vertically flipped ASCII block.
@@ -45,7 +46,7 @@ public class VFlip implements AsciiBlock {
    *   If the row is invalid.
    */
   public String row(int i) throws Exception {
-    throw new Exception("Not yet implemented"); // STUB
+    return block.row((block.height() - i) - 1);
   } // row(int)
 
   /**
@@ -54,7 +55,7 @@ public class VFlip implements AsciiBlock {
    * @return the number of rows
    */
   public int height() {
-    return 0;   // STUB
+    return block.height();   // STUB
   } // height()
 
   /**
@@ -63,7 +64,7 @@ public class VFlip implements AsciiBlock {
    * @return the number of columns
    */
   public int width() {
-    return 0;   // STUB
+    return block.width();   // STUB
   } // width()
 
   /**

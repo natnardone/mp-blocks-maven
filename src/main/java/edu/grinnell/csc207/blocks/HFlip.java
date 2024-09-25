@@ -1,5 +1,5 @@
 package edu.grinnell.csc207.blocks;
-
+import java.lang.StringBuilder;
 /**
  * A horizontally flipped ASCII block.
  *
@@ -45,8 +45,14 @@ public class HFlip implements AsciiBlock {
    *   If the row is invalid.
    */
   public String row(int i) throws Exception {
-    throw new Exception("Not yet implemented"); // STUB
-  } // row(int)
+    String finalstr = new String("");
+    String originslStr = new String(block.row(i));
+
+    for(int a= originslStr.length()-1; a >=0; a--){
+     finalstr.concat(String.valueOf(originslStr.charAt(a)));
+    }
+    return finalstr;
+  }
 
   /**
    * Determine how many rows are in the block.
@@ -54,7 +60,7 @@ public class HFlip implements AsciiBlock {
    * @return the number of rows
    */
   public int height() {
-    return 0;   // STUB
+    return block.height();   // STUB
   } // height()
 
   /**
@@ -63,7 +69,7 @@ public class HFlip implements AsciiBlock {
    * @return the number of columns
    */
   public int width() {
-    return 0;   // STUB
+    return block.width();   // STUB
   } // width()
 
   /**
