@@ -5,8 +5,8 @@ Explorations with the creation, composition, and mutation of blocks of ASCII tex
 **Authors**
 
 * Samuel A. Rebelsky (starter code).
-* Your Name Here
-* Your name Here
+* Natalie Nardone
+* Jenifer Silva
 
 **Notes for the reader**
 
