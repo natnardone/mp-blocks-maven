@@ -1,11 +1,11 @@
 package edu.grinnell.csc207.blocks;
-import java.lang.StringBuilder;
 
 /**
  * A vertically flipped ASCII block.
  *
  * @author Samuel A. Rebelsky
- * @author Your Name Here
+ * @author Natalie Nardone
+ * @author Jenifer Silva
  */
 public class VFlip implements AsciiBlock {
   // +--------+------------------------------------------------------------
@@ -55,7 +55,7 @@ public class VFlip implements AsciiBlock {
    * @return the number of rows
    */
   public int height() {
-    return block.height();   // STUB
+    return block.height();
   } // height()
 
   /**
@@ -64,7 +64,7 @@ public class VFlip implements AsciiBlock {
    * @return the number of columns
    */
   public int width() {
-    return block.width();   // STUB
+    return block.width();
   } // width()
 
   /**

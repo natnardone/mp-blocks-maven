@@ -1,10 +1,10 @@
 package edu.grinnell.csc207.blocks;
-import java.lang.StringBuilder;
 /**
  * A horizontally flipped ASCII block.
  *
  * @author Samuel A. Rebelsky
- * @author Your Name Here
+ * @author Natalie Nardone
+ * @author Jenifer Silva
  */
 public class HFlip implements AsciiBlock {
   // +--------+------------------------------------------------------------
@@ -46,13 +46,13 @@ public class HFlip implements AsciiBlock {
    */
   public String row(int i) throws Exception {
     String finalstr = new String("");
-    String originslStr = new String(block.row(i));
+    String originalStr = new String(block.row(i));
 
-    for(int a= originslStr.length()-1; a >=0; a--){
-     finalstr = finalstr.concat(String.valueOf(originslStr.charAt(a)));
-    }
+    for (int a = originalStr.length() - 1; a >= 0; a--) {
+      finalstr = finalstr.concat(String.valueOf(originalStr.charAt(a)));
+    } // for
     return finalstr;
-  }
+  } // row(int)
 
   /**
    * Determine how many rows are in the block.
@@ -60,7 +60,7 @@ public class HFlip implements AsciiBlock {
    * @return the number of rows
    */
   public int height() {
-    return block.height();   // STUB
+    return block.height();
   } // height()
 
   /**
@@ -69,7 +69,7 @@ public class HFlip implements AsciiBlock {
    * @return the number of columns
    */
   public int width() {
-    return block.width();   // STUB
+    return block.width();
   } // width()
 
   /**

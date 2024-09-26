@@ -114,7 +114,7 @@ public class Rect implements AsciiBlock {
     return (this.row.equals(other.row) && (this.height == other.height));
   } // eqv(Rect)
 
-  
+
 
   // +---------------+-----------------------------------------------
   // | Other methods |

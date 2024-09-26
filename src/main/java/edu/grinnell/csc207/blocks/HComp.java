@@ -1,13 +1,13 @@
 package edu.grinnell.csc207.blocks;
 
 import java.util.Arrays;
-import java.lang.String;
 
 /**
  * The horizontal composition of blocks.
  *
  * @author Samuel A. Rebelsky
- * @author Your Name Here
+ * @author Natalie Nardone
+ * @author Jenifer Silva
  */
 public class HComp implements AsciiBlock {
   // +--------+------------------------------------------------------------
@@ -83,32 +83,32 @@ public class HComp implements AsciiBlock {
         if (this.align == VAlignment.TOP) {
           if (i < temp.height()) {
             str = str.concat(temp.row(i));
-          } else { 
+          } else {
             str = str.concat(" ".repeat(temp.width()));
-          }
+          } // if/else
         } else if (this.align == VAlignment.BOTTOM) {
           if (i >= (this.height() - temp.height())) {
-            str = str.concat(temp.row(i - (this.height()-temp.height())));
-          } else { 
+            str = str.concat(temp.row(i - (this.height() - temp.height())));
+          } else {
             str = str.concat(" ".repeat(temp.width()));
-          }
+          } // if/else
         } else if (this.align == VAlignment.CENTER) {
           int topbound = (this.height() - temp.height()) / 2; // inclusive
           int botbound = topbound + temp.height() - 1; // inclusive
           if (i >= topbound && i <= botbound) {
             str = str.concat(temp.row(i - topbound));
-          } else { 
+          } else {
             str = str.concat(" ".repeat(temp.width()));
-          }
-        }
-      }
+          } // if/else
+        } // if/else
+      } // for
       return str;
-    }
+    } // if/else
   } // row(int)
 
   /**
    * Determine how many rows are in the block.
-   *empty
+   *
    * @return the number of rows
    */
   public int height() {
@@ -116,8 +116,8 @@ public class HComp implements AsciiBlock {
     for (int i = 0; i < blocks.length; i++) {
       if (blocks[i].height() > max) {
         max = blocks[i].height();
-      }
-    }
+      } // if
+    } // for
     return max;
   } // height()
 
@@ -130,7 +130,7 @@ public class HComp implements AsciiBlock {
     int width = 0;
     for (int i = 0; i < blocks.length; i++) {
       width += blocks[i].width();
-    }
+    } // for
     return width;
   } // width()
 
@@ -157,6 +157,6 @@ public class HComp implements AsciiBlock {
    *    false otherwise.
    */
   public boolean eqv(HComp other) {
-    return (this.align == other.align) && (Arrays.equals(this.blocks, other.blocks));
+    return (this.align.equals(other.align)) && (Arrays.equals(this.blocks, other.blocks));
   } // eqv(HComp)
 } // class HComp

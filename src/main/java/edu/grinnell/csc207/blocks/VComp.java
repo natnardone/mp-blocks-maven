@@ -6,8 +6,8 @@ import java.util.Arrays;
  * The vertical composition of blocks.
  *
  * @author Samuel A. Rebelsky
- * @author Your Name Here
- * @author Your Name Here
+ * @author Natalie Nardone
+ * @author Jenifer Silva
  */
 public class VComp implements AsciiBlock {
   // +--------+------------------------------------------------------------
@@ -78,31 +78,29 @@ public class VComp implements AsciiBlock {
     } else {
       String str = new String("");
       int rowCount = 0;
-      for (int k =0; k < blocks.length; k++) {
-        for (int j = 0; j < blocks[k].height(); j++){
+      for (int k = 0; k < blocks.length; k++) {
+        for (int j = 0; j < blocks[k].height(); j++) {
           if (rowCount == i) {
             str = blocks[k].row(j);
-            String spaces = new String(" ".repeat(this.width()-str.length()));
-            if (this.align == HAlignment.LEFT){
+            String spaces = new String(" ".repeat(this.width() - str.length()));
+            if (this.align == HAlignment.LEFT) {
               str = str.concat(spaces);
-            }
-            else if (this.align == HAlignment.RIGHT) {
+            } else if (this.align == HAlignment.RIGHT) {
               str = spaces.concat(str);
-            }
-            else if (this.align == HAlignment.CENTER) {
-              String leftspace = new String(spaces.substring(0, spaces.length()/2));
-              String rightspace = new String(spaces.substring(spaces.length()/2));
+            } else if (this.align == HAlignment.CENTER) {
+              String leftspace = new String(spaces.substring(0, spaces.length() / 2));
+              String rightspace = new String(spaces.substring(spaces.length() / 2));
               str = leftspace.concat(str).concat(rightspace);
-            }
+            } // if/else
             return str;
           } else {
             rowCount++;
-          }
-        }
-      }
+          } // if/else
+        } // for
+      } // for
       return "";
-    }
-  }
+    } // if/else
+  } // row(int)
 
   /**
    * Determine how many rows are in the block.
@@ -113,7 +111,7 @@ public class VComp implements AsciiBlock {
     int height = 0;
     for (int i = 0; i < blocks.length; i++) {
       height += blocks[i].height();
-    }
+    } // for
     return height;
   } // height()
   /**
@@ -126,8 +124,8 @@ public class VComp implements AsciiBlock {
     for (int i = 0; i < blocks.length; i++) {
       if (blocks[i].width() > max) {
         max = blocks[i].width();
-      }
-    }
+      } // if
+    } // for
     return max;
   } // width()
 
@@ -154,6 +152,6 @@ public class VComp implements AsciiBlock {
    *    false otherwise.
    */
   public boolean eqv(VComp other) {
-    return (this.align == other.align) && (Arrays.equals(this.blocks, other.blocks));
+    return (this.align.equals(other.align)) && (Arrays.equals(this.blocks, other.blocks));
   } // eqv(VComp)
 } // class VComp
