@@ -90,22 +90,23 @@ public class VComp implements AsciiBlock {
       }
       String spaces = new String(" ".repeat(this.width()-str.length()));
       if (this.align == HAlignment.LEFT){
-        str.concat(spaces);
-        return str;
+        str = str.concat(spaces);
+        //return str;
       }
       else if (this.align == HAlignment.RIGHT) {
-        spaces.concat(str);
-        return spaces;
+        str = spaces.concat(str);
+        //return spaces;
       }
       else if (this.align == HAlignment.CENTER) {
         String leftspace = new String(spaces.substring(0, spaces.length()/2));
         String rightspace = new String(spaces.substring(spaces.length()/2));
-        leftspace.concat(str).concat(rightspace);
-        return leftspace;
+        str = leftspace.concat(str).concat(rightspace);
+        //return leftspace;
       }
-      else {
-        return null;
-      }
+      //else {
+      //  return null;
+      //}
+      return str;
 
     }
   }

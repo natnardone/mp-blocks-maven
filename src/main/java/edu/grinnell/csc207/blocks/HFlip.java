@@ -49,7 +49,7 @@ public class HFlip implements AsciiBlock {
     String originslStr = new String(block.row(i));
 
     for(int a= originslStr.length()-1; a >=0; a--){
-     finalstr.concat(String.valueOf(originslStr.charAt(a)));
+     finalstr = finalstr.concat(String.valueOf(originslStr.charAt(a)));
     }
     return finalstr;
   }
