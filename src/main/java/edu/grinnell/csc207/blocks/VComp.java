@@ -82,32 +82,25 @@ public class VComp implements AsciiBlock {
         for (int j = 0; j < blocks[k].height(); j++){
           if (rowCount == i) {
             str = blocks[k].row(j);
-            break;
+            String spaces = new String(" ".repeat(this.width()-str.length()));
+            if (this.align == HAlignment.LEFT){
+              str = str.concat(spaces);
+            }
+            else if (this.align == HAlignment.RIGHT) {
+              str = spaces.concat(str);
+            }
+            else if (this.align == HAlignment.CENTER) {
+              String leftspace = new String(spaces.substring(0, spaces.length()/2));
+              String rightspace = new String(spaces.substring(spaces.length()/2));
+              str = leftspace.concat(str).concat(rightspace);
+            }
+            return str;
           } else {
             rowCount++;
           }
         }
       }
-      String spaces = new String(" ".repeat(this.width()-str.length()));
-      if (this.align == HAlignment.LEFT){
-        str = str.concat(spaces);
-        //return str;
-      }
-      else if (this.align == HAlignment.RIGHT) {
-        str = spaces.concat(str);
-        //return spaces;
-      }
-      else if (this.align == HAlignment.CENTER) {
-        String leftspace = new String(spaces.substring(0, spaces.length()/2));
-        String rightspace = new String(spaces.substring(spaces.length()/2));
-        str = leftspace.concat(str).concat(rightspace);
-        //return leftspace;
-      }
-      //else {
-      //  return null;
-      //}
-      return str;
-
+      return "";
     }
   }
 
@@ -148,6 +141,19 @@ public class VComp implements AsciiBlock {
    *    false otherwise.
    */
   public boolean eqv(AsciiBlock other) {
-    return false;       // STUB
+    return ((other instanceof VComp) && (this.eqv((VComp) other)));
   } // eqv(AsciiBlock)
+
+    /**
+   * Determine if another HComp is structurally equivalent to this HComp.
+   *
+   * @param other
+   *   The HComp to compare to this HComp.
+   *
+   * @return true if the two blocks are structurally equivalent and
+   *    false otherwise.
+   */
+  public boolean eqv(VComp other) {
+    return (this.align == other.align) && (Arrays.equals(this.blocks, other.blocks));
+  } // eqv(VComp)
 } // class VComp

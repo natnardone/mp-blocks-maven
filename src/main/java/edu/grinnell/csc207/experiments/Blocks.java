@@ -122,9 +122,9 @@ public class Blocks {
 
     separator(pen);
     pen.println("Fun with horizontal composition");
-    AsciiBlock a = new Rect('A', 5, 2);
-    AsciiBlock b = new Rect('B', 3, 3);
-    AsciiBlock c = new Rect('C', 2, 6);
+    AsciiBlock a = new Rect('6', 1, 6);
+    AsciiBlock b = new Rect('4', 3, 4);
+    AsciiBlock c = new Rect('2', 2, 2);
     figure(pen, "a", a);
     figure(pen, "b", b);
     figure(pen, "c", c);
@@ -134,6 +134,7 @@ public class Blocks {
         new HComp(VAlignment.CENTER, new AsciiBlock[] {a, b, c}));
     figure(pen, "Bottom composition",
         new HComp(VAlignment.BOTTOM, new AsciiBlock[] {a, b, c}));
+
 
     separator(pen);
     pen.println("Fun with vertical composition");
@@ -147,9 +148,9 @@ public class Blocks {
     figure(pen, "v19", v19);
     figure(pen, "Left composition",
         new VComp(HAlignment.LEFT, new AsciiBlock[] {v1, v7, v11, v19}));
-    figure(pen, "Left composition",
+    figure(pen, "Center composition",
         new VComp(HAlignment.CENTER, new AsciiBlock[] {v1, v7, v11, v19}));
-    figure(pen, "Left composition",
+    figure(pen, "Right composition",
         new VComp(HAlignment.RIGHT, new AsciiBlock[] {v1, v7, v11, v19}));
 
     pen.close();
