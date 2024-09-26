@@ -88,7 +88,7 @@ public class HComp implements AsciiBlock {
           }
         } else if (this.align == VAlignment.BOTTOM) {
           if (i >= (this.height() - temp.height())) {
-            str = str.concat(temp.row(i));
+            str = str.concat(temp.row(i - (this.height()-temp.height())));
           } else { 
             str = str.concat(" ".repeat(temp.width()));
           }
@@ -96,7 +96,7 @@ public class HComp implements AsciiBlock {
           int topbound = (this.height() / temp.height()) - 1; // inclusive
           int botbound = topbound + temp.height() - 1; // inclusive
           if (i >= topbound && i <= botbound) {
-            str = str.concat(temp.row(i));
+            str = str.concat(temp.row(i - ((this.height()-temp.height()))/2));
           } else { 
             str = str.concat(" ".repeat(temp.width()));
           }
