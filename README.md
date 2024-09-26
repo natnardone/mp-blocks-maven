@@ -8,6 +8,9 @@ Explorations with the creation, composition, and mutation of blocks of ASCII tex
 * Natalie Nardone
 * Jenifer Silva
 
+**Attributions**
+* Paden H. (hcomposition help)
+
 **Notes for the reader**
 
 PLEASE ADD NOTES FOR SOMEONE NOT FAMILIAR WITH THE PROJECT.
