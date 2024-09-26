@@ -93,10 +93,10 @@ public class HComp implements AsciiBlock {
             str = str.concat(" ".repeat(temp.width()));
           }
         } else if (this.align == VAlignment.CENTER) {
-          int topbound = (this.height() / temp.height()) - 1; // inclusive
+          int topbound = (this.height() - temp.height()) / 2; // inclusive
           int botbound = topbound + temp.height() - 1; // inclusive
           if (i >= topbound && i <= botbound) {
-            str = str.concat(temp.row(i - ((this.height()-temp.height()))/2));
+            str = str.concat(temp.row(i - topbound));
           } else { 
             str = str.concat(" ".repeat(temp.width()));
           }
