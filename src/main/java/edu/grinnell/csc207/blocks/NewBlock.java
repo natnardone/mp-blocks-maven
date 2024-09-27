@@ -55,13 +55,25 @@ public class NewBlock implements AsciiBlock {
    */
   public String row(int i) throws Exception {
     int h = this.contents.height();
-    if ((i == 0) || (i == h + 1) || (i == (h / 2))) {
+    if ((i == 0) || (i == h + 2) || (i == (h / 2) + 1)) {
       // The top, middle, or bottom of the outside
       return this.quarterChar.repeat(this.contents.width() + 3);
-    } else if ((i > 0) && (i <= h)) {
-      // Stuff within the horizontal lines
-      return this.quarterChar + this.contents.row(i - 1) + this.quarterChar;
-      // need to split contents in half and add another quarterchar
+    } else if ((i > 0) && (i < (h / 2) + 1)) {
+      // Stuff within the top and middle lines
+      String newString = new String("");
+      String firstHalf = this.contents.row(i - 1).substring(0, this.contents.width() / 2);
+      String secondHalf = this.contents.row(i - 1).substring(this.contents.width() / 2);
+      newString = newString.concat(this.quarterChar + firstHalf + this.quarterChar
+        + secondHalf + this.quarterChar);
+      return newString;
+    } else if ((i > (h / 2) + 1) && (i < (h + 2))) {
+      // Stuff within the middle and bottom lines
+      String newString = new String("");
+      String firstHalf = this.contents.row(i - 2).substring(0, this.contents.width() / 2);
+      String secondHalf = this.contents.row(i - 2).substring(this.contents.width() / 2);
+      newString = newString.concat(this.quarterChar + firstHalf + this.quarterChar
+        + secondHalf + this.quarterChar);
+      return newString;
     } else {
       throw new Exception("Invalid row " + i);
     } // if/else

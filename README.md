@@ -10,11 +10,12 @@ Explorations with the creation, composition, and mutation of blocks of ASCII tex
 
 **Attributions**
 * Paden H. (hcomposition help)
+* Java Documentation
 
 **Notes for the reader**
 
-PLEASE ADD NOTES FOR SOMEONE NOT FAMILIAR WITH THE PROJECT.
+* The Art80x24 file creates a piece of ASCII art. The Blocks file runs experiments testing different ASCII block types.
 
 ---
 
-This code may be found at <https://github.com/YOUR_USERNAME/YOU_REPO>. The original project can be found at <https://github.com/Grinnell-CSC207/mp-blocks-maven>.
+This code may be found at <https://github.com/natnardone/mp-blocks-maven>. The original project can be found at <https://github.com/Grinnell-CSC207/mp-blocks-maven>.
