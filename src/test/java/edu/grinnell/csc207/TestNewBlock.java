@@ -17,6 +17,8 @@ import edu.grinnell.csc207.blocks.HComp;
 
 /**
  * Tests of the new block.
+ * @author Natalie Nardone
+ * @author Jenifer Silva
  */
 public class TestNewBlock {
   // +-------+-------------------------------------------------------

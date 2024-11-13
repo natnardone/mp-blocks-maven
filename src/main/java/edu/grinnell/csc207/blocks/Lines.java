@@ -7,6 +7,8 @@ import java.util.Arrays;
  * testing.
  *
  * @author Samuel A. Rebelsky
+ * @author Natalie Nardone
+ * @author Jenifer Silva
  */
 public class Lines implements AsciiBlock {
   // +--------+------------------------------------------------------------

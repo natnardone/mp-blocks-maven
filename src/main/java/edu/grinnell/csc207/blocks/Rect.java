@@ -4,6 +4,8 @@ package edu.grinnell.csc207.blocks;
  * A mutable rectangular block of one repeated character.
  *
  * @author Samuel A. Rebelsky
+ * @author Natalie Nardone
+ * @author Jenifer Silva
  */
 public class Rect implements AsciiBlock {
   // +--------+------------------------------------------------------------
