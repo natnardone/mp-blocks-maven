@@ -2,6 +2,8 @@ package edu.grinnell.csc207.blocks;
 
 /**
  * Vertical alignments.
+ * Natalie Nardone
+ * Jenifer Silva
  */
 public enum VAlignment {
   /** Align to the top. */

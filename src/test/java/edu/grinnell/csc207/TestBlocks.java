@@ -26,6 +26,8 @@ import org.junit.jupiter.api.Test;
 
 /**
  * Tests of the various ASCII Blocks.
+ * Natalie Nardone
+ * Jenifer Silva
  */
 public class TestBlocks {
 

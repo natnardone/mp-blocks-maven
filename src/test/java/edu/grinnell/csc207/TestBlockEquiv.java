@@ -23,6 +23,8 @@ import org.junit.jupiter.api.Test;
 
 /**
  * Tests of the equivalence of various ASCII blocks.
+ * Natalie Nardone
+ * Jenifer Silva
  */
 public class TestBlockEquiv {
   // +-------+-------------------------------------------------------
